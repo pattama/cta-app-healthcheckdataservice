@@ -28,14 +28,15 @@ describe('utils/restapi/handlers/healthcheck', function () {
     const handler = new Handler(CementHelper);
     assert.instanceOf(handler, Handler);
   });
-  it('', function() {
+  it('update api', function () {
     const handler = new Handler(CementHelper);
+    const mockResponse = { result: 'ok' };
     sinon.stub(CementHelper.dependencies.healthcheck, 'update')
-      .returns(true);
+      .returns(mockResponse);
     const req = {
       body: {
-        id: 'some id',
-        data: 'some data',
+        name: 'some name',
+        status: 'green',
       },
     };
     const res = {
@@ -49,12 +50,13 @@ describe('utils/restapi/handlers/healthcheck', function () {
     sinon.spy(res, 'send');
     handler.update(req, res);
     sinon.assert.calledWith(res.status, 200);
-    sinon.assert.calledWith(res.send, { result: true });
+    sinon.assert.calledWith(res.send, mockResponse);
     CementHelper.dependencies.healthcheck.update.restore();
+    const mockError = { error: 'some error' };
     sinon.stub(CementHelper.dependencies.healthcheck, 'update')
-      .returns('error');
+      .returns(mockError);
     handler.update(req, res);
-    sinon.assert.calledWith(res.status, 500);
-    sinon.assert.calledWith(res.send, { error: 'error' });
+    sinon.assert.calledWith(res.status, 400);
+    sinon.assert.calledWith(res.send, mockError);
   });
 });

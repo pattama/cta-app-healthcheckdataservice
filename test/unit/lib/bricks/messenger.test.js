@@ -31,19 +31,20 @@ describe('Brick messenger', function() {
       },
       createContext: () => {},
     };
+    const mockResponse = { result: 'ok' };
     sinon.stub(CementHelper.dependencies.healthcheck, 'update')
-      .returns(true);
+      .returns(mockResponse);
     const messenger = new Messenger(CementHelper, config);
     const context = new Context();
     context.data = {
       payload: {
-        id: 'some id',
-        data: 'some data',
+        name: 'some name',
+        status: 'green',
       },
     };
     sinon.stub(context, 'emit');
     messenger.process(context);
-    sinon.assert.calledWith(context.emit, 'done', 'someBrick', true);
+    sinon.assert.calledWith(context.emit, 'done', 'someBrick', mockResponse);
     CementHelper.dependencies.healthcheck.update.restore();
     sinon.stub(CementHelper.dependencies.healthcheck, 'update')
       .returns('error');
