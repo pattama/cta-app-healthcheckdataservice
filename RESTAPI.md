@@ -33,31 +33,83 @@ POST /healthcheck
 
 # Read healthcheck
 
-**Request**
-
-```
 GET /healthcheck
 ```
-
-**Response**
-
-```
-200
 {
-  "status": "red",
-  "statuses": {
-    "myapp": {
-      "status": "red",
-      "current": {
-        "services": {
-          "some app service": {
-            "date": "2016-12-02T14:48:33.010Z",
-            "status": "red",
-            "reason": "some reason"
+  status: 'red'
+}
+```
+
+GET /healthcheck?mode=full
+```
+{
+  status: 'red',
+  statuses: {
+    foo: {
+      status: 'red',
+      current: {
+        services: {
+          alpha: {
+            date: '2016-12-05T13:00:00.000Z',
+            status: 'red'
+          },
+          beta: {
+            date: '2016-12-05T11:00:00.000Z',
+            status: 'green'
           }
         }
       },
-      "previous": {      
+      previous: {
+        services: {
+          alpha: {
+            date: '2016-12-05T12:00:00.000Z',
+            status: 'green'
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+GET /healthcheck?mode=current
+```
+{
+  status: 'red',
+  statuses: {
+    foo: {
+      status: 'red',
+      current: {
+        services: {
+          alpha: {
+            date: '2016-12-05T13:00:00.000Z',
+            status: 'red'
+          },
+          beta: {
+            date: '2016-12-05T11:00:00.000Z',
+            status: 'green'
+          }
+        }
+      }     
+    }
+  }
+}
+```
+
+GET /healthcheck?mode=previous
+```
+{
+  status: 'red',
+  statuses: {
+    foo: {
+      status: 'red',
+      previous: {
+        services: {
+          alpha: {
+            date: '2016-12-05T12:00:00.000Z',
+            status: 'green'
+          }
+        }
       }
     }
   }
