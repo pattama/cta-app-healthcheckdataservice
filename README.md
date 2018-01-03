@@ -54,7 +54,7 @@ Our service is composed of different components working together to schedule, ru
 We also cover in detail :
 * The [Rest API](RESTAPI.md) is composed of multiple REST service to perform actions on CTA.
 * A [DataContract](DATACONTRACT.md) is a formal agreement between a bricks.
-* The [Document](https://git.sami.int.thomsonreuters.com/compass/cta-app-agent/wikis/document) associated with a software project and the system being.
+* The [Document](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/wikis/document) associated with a software project and the system being.
 * A [Sequence Diagrams](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/wikis/sequencediagram) is an interaction diagram that shows how objects operate with one another and in what order.
 
 ------
