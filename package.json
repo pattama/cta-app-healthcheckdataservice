@@ -7,6 +7,7 @@
   "scripts": {
     "test": "NODE_PATH=. _mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && codecov",
     "lint": "eslint --quiet lib test",
     "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
