@@ -1,4 +1,7 @@
-# healthcheck data service [ ![build status](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/badges/master/build.svg)](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/commits/master) [![coverage report](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/badges/master/coverage.svg)](https://git.sami.int.thomsonreuters.com/compass/cta-app-healthcheckdataservice/commits/master)
+# healthcheck data service 
+[![Build Status](https://travis-ci.org/thomsonreuters/cta-app-healthcheckdataservice.svg?branch=master)](https://travis-ci.org/thomsonreuters/cta-app-healthcheckdataservice)
+[![Coverage Status](https://coveralls.io/repos/github/thomsonreuters/cta-app-healthcheckdataservice/badge.svg?branch=master)](https://coveralls.io/github/thomsonreuters/cta-app-healthcheckdataservice?branch=master)
+[![codecov](https://codecov.io/gh/thomsonreuters/cta-app-healthcheckdataservice/branch/master/graph/badge.svg)](https://codecov.io/gh/thomsonreuters/cta-app-healthcheckdataservice)
 
 Healthcheck Data Service for Compass Test Automation, One of an application in CTA-OSS Framework
 
